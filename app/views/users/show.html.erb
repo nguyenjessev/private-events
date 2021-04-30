@@ -5,5 +5,13 @@
   <%= @user.name %>
 </p>
 
+<p>
+  <strong>Created Events:</strong>
+  <% @user.created_events.each do |event| %>
+    <%= event.title %>
+    <%= event.description %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
