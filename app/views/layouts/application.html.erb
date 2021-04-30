@@ -11,9 +11,16 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
     <% if User.exists?(session[:user_id]) %>
       <h1>Currently logged in as: <%= User.find_by_id(session[:user_id]).name %></h1>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
