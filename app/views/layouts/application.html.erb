@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% unless session[:user_id].nil? %>
+      <h1>Currently logged in as: <%= User.find_by_id(session[:user_id]).name %></h1>
+    <% end %>
     <%= yield %>
   </body>
 </html>
