@@ -8,8 +8,9 @@
 <p>
   <strong>Created Events:</strong>
   <% @user.created_events.each do |event| %>
-    <%= event.title %>
-    <%= event.description %>
+    <%= link_to event do %>
+      <%= render partial: "events/card", locals: { event: event } %>
+    <% end %>
   <% end %>
 </p>
 
