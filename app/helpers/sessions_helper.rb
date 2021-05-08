@@ -1,9 +1,7 @@
 module SessionsHelper
   def user_logged_in?
-    if session[:user_id].nil?
-      return false
-    end
+    return true if User.exists?(session[:user_id])
 
-    true
+    false
   end
 end
