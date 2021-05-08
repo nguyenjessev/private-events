@@ -5,4 +5,5 @@ module SessionsHelper
     end
 
     true
+  end
 end
