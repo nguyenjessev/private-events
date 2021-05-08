@@ -1,3 +1,7 @@
 <h1><%= @event.title %></h1>
 <p><%= @event.description %></p>
 <p>Event created by: <%= @event.creator.name %></p>
+
+<% if user_logged_in? %>
+  Attend Event
+<% end %>

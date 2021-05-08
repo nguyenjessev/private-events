@@ -10,4 +10,6 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<% if user_logged_in? %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
