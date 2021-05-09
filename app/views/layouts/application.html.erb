@@ -18,7 +18,10 @@
     <% end %>
 
     <% if user_logged_in? %>
-      <h1>Currently logged in as: <%= User.find_by_id(session[:user_id]).name %></h1>
+      <h1>Currently logged in as: <%= current_user.name %></h1>
+      <p><%= link_to "Log Out", session_path(current_user.id), method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Log In", new_session_path %></p>
     <% end %>
 
     <%= yield %>

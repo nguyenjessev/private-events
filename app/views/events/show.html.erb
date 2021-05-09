@@ -3,5 +3,7 @@
 <p>Event created by: <%= @event.creator.name %></p>
 
 <% if user_logged_in? %>
-  Attend Event
+  <%= link_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post %>
 <% end %>
+
+<%= link_to "<< All Events", root_path %>

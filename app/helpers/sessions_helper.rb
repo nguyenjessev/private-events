@@ -4,4 +4,10 @@ module SessionsHelper
 
     false
   end
+
+  def current_user
+    return User.find(session[:user_id]) if user_logged_in?
+
+    nil
+  end
 end
