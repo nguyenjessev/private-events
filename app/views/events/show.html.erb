@@ -2,6 +2,14 @@
 <p><%= @event.description %></p>
 <p>Event created by: <%= @event.creator.name %></p>
 
+<p>
+Currently attending:
+<% @event.attendees.each do |attendee| %>
+<li><%= attendee.name %></li>
+<% end %>
+</p>
+
+<p>
 <% if user_logged_in? %>
   <% if @event.attendees.where(id: current_user.id).any? %>
     <%= link_to "Cancel Attendance", event_attendance_path(event_id: @event.id, attendee_id: current_user.id), method: :delete %>
@@ -9,5 +17,8 @@
     <%= link_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post %>
   <% end %>
 <% end %>
+</p>
 
+<p>
 <%= link_to "<< All Events", root_path %>
+</p>
