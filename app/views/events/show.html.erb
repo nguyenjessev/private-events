@@ -3,7 +3,7 @@
 <p>Event created by: <%= @event.creator.name %></p>
 
 <p>
-Currently attending:
+Guest List:
 <% @event.attendees.each do |attendee| %>
 <li><%= attendee.name %></li>
 <% end %>
