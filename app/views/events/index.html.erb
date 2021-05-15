@@ -1,15 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1 class="centered-text">All Events</h1>
 
-<h1>All Events</h1>
+  <section>
+    <h2 class="centered-text">Upcoming Events</h2>
 
-<% @events.each do |event| %>
-  <%= link_to event do %>
-    <%= render partial: "card", locals: { event: event } %>
-  <% end %>
-<% end %>
+    <section class="event-list">
+      <% @events.each do |event| %>
+        <%= link_to event do %>
+          <%= render partial: "card", locals: { event: event } %>
+        <% end %>
+      <% end %>
+    </section>
+  </section>
 
-<br>
-
-<% if user_logged_in? %>
-  <%= link_to 'New Event', new_event_path %>
-<% end %>
+  <section>
+    <h2 class="centered-text">Past Events</h2>
+  </section>
+</div>

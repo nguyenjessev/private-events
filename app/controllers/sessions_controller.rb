@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_name(params[:name])
     if user
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to root_path, notice: 'You are now logged in.'
     else
       flash.now[:error] = 'That user does not exist!'
       render 'new'
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: 'You are now logged out.'
   end
 end

@@ -1,4 +1,5 @@
 <h1><%= @event.title %></h1>
+<p><%= @event.date %></p>
 <p><%= @event.description %></p>
 <p>Event created by: <%= @event.creator.name %></p>
 
@@ -17,8 +18,4 @@ Guest List:
     <%= link_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post %>
   <% end %>
 <% end %>
-</p>
-
-<p>
-<%= link_to "<< All Events", root_path %>
 </p>

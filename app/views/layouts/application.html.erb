@@ -12,17 +12,22 @@
 
   <body>
     <% flash.each do |type, msg| %>
-      <div>
+      <div class="flash centered-text <%= type %>">
         <%= msg %>
       </div>
     <% end %>
 
-    <% if user_logged_in? %>
-      <h1>Currently logged in as: <%= current_user.name %></h1>
-      <p><%= link_to "Log Out", session_path(current_user.id), method: :delete %></p>
-    <% else %>
-      <p><%= link_to "Log In", new_session_path %></p>
-    <% end %>
+    <nav class="nav-bar">
+      <%= link_to "Private Events", root_path, class: "nav-button" %>
+
+      <% if user_logged_in? %>
+        <%= link_to "Create Event", new_event_path, class: "nav-button nav-right" %>
+        <%= link_to current_user.name, user_path(current_user.id), class: "nav-button" %>
+        <%= link_to "Log Out", session_path(current_user.id), method: :delete, class: "nav-button" %>
+      <% else %>
+        <%= link_to "Log In", new_session_path, class: "nav-button nav-right" %>
+      <% end %>
+    </nav>
 
     <%= yield %>
   </body>

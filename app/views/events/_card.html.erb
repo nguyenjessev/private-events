@@ -1,7 +1,9 @@
 <div class="event-card">
-  <p><%= event.title %></p>
+  <div><%= event.title %></div>
 
-  <p><%= event.description %></p>
+  <div>Hosted by <%= event.creator.name %></div>
 
-  <p>Event created by: <%= event.creator.name %></p>
+  <div><%= event.date %></div>
+
+  <div><%= event.description %></div>
 </div>
