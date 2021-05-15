@@ -5,7 +5,7 @@
     <h2 class="centered-text">Upcoming Events</h2>
 
     <section class="event-list">
-      <% @events.each do |event| %>
+      <% @events.upcoming.each do |event| %>
         <%= link_to event do %>
           <%= render partial: "card", locals: { event: event } %>
         <% end %>
@@ -15,5 +15,13 @@
 
   <section>
     <h2 class="centered-text">Past Events</h2>
+
+    <section class="event-list">
+      <% @events.past.each do |event| %>
+        <%= link_to event do %>
+          <%= render partial: "card", locals: { event: event } %>
+        <% end %>
+      <% end %>
+    </section>
   </section>
 </div>
