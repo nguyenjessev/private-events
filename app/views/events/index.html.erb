@@ -6,21 +6,19 @@
 
     <section class="event-list">
       <% @events.upcoming.each do |event| %>
-        <%= link_to event do %>
-          <%= render partial: "card", locals: { event: event } %>
-        <% end %>
+        <%= render partial: "card", locals: { event: event } %>
       <% end %>
     </section>
   </section>
+
+  <hr>
 
   <section>
     <h2 class="centered-text">Past Events</h2>
 
     <section class="event-list">
       <% @events.past.each do |event| %>
-        <%= link_to event do %>
-          <%= render partial: "card", locals: { event: event } %>
-        <% end %>
+        <%= render partial: "card", locals: { event: event } %>
       <% end %>
     </section>
   </section>

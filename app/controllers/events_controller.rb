@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = User.find(session[:user_id]).created_events.build(event_params)
 
     if @event.save
-      redirect_to @event
+      redirect_to @event, notice: 'Event created.'
     else
       render :new
     end
