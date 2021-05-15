@@ -71,3 +71,21 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.event-submit {
+  width: 100%;
+  height: 4rem;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  background: hsl(120, 50%, 45%);
+  color: white;
+  border: none;
+}
+
+.event-submit:hover {
+  background: hsl(120, 50%, 40%);
+}
+
+.event-title-input {
+  font-size: 2rem;
+}

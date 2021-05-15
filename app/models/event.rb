@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :date, presence: true
+
   belongs_to :creator, class_name: 'User'
 
   has_many :event_attendances, foreign_key: :attended_event_id, dependent: :destroy

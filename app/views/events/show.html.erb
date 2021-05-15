@@ -17,5 +17,9 @@ Guest List:
   <% else %>
     <%= link_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post %>
   <% end %>
+
+  <% if @event.creator == current_user %>
+    <%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
 </p>

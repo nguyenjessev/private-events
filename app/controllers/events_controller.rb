@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: %i[show destroy]
   before_action :require_login, except: %i[index show]
 
   def index
@@ -19,11 +20,21 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @event = Event.find(params[:id])
+  def show; end
+
+  def destroy
+    @event.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Event was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:title, :description, :date)
