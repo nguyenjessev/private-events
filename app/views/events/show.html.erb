@@ -1,25 +1,36 @@
-<h1><%= @event.title %></h1>
-<p><%= @event.date %></p>
-<p><%= @event.description %></p>
-<p>Event created by: <%= @event.creator.name %></p>
+<div class="centered-container">
+  <h1 class="centered-text"><%= @event.title %></h1>
 
-<p>
-Guest List:
-<% @event.attendees.each do |attendee| %>
-<li><%= attendee.name %></li>
-<% end %>
-</p>
+  <div class="event-information">
+    <div class="event-description">
+      <%= @event.description %>
+    </div>
 
-<p>
-<% if user_logged_in? %>
-  <% if @event.attendees.where(id: current_user.id).any? %>
-    <%= link_to "Cancel Attendance", event_attendance_path(event_id: @event.id, attendee_id: current_user.id), method: :delete %>
-  <% else %>
-    <%= link_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post %>
-  <% end %>
+    <div class="event-details">
+      <%= @event.date %>
+      <br>
+      Event hosted by: <%= link_to @event.creator.name, @event.creator %>
+    </div>
 
-  <% if @event.creator == current_user %>
-    <%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
-</p>
+    <div class="event-guests">
+      Attendees:
+      <% @event.attendees.each do |attendee| %>
+        <%= link_to attendee.name, attendee %>
+      <% end %>
+    </div>
+  </div>
+
+  <p>
+    <% if user_logged_in? %>
+      <% if @event.attendees.where(id: current_user.id).any? %>
+        <%= button_to "Cancel Attendance", event_attendance_path(event_id: @event.id, attendee_id: current_user.id), method: :delete, class: "btn" %>
+      <% else %>
+        <%= button_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post, class: "btn" %>
+      <% end %>
+
+      <% if @event.creator == current_user %>
+        <%= button_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+      <% end %>
+    <% end %>
+  </p>
+</div>

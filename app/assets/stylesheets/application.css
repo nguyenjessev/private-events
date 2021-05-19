@@ -68,32 +68,32 @@
    background: hsl(35, 60%, 76%);
  }
 
- @media all and (max-width: 600px) {
-   .nav-button {
-     flex-basis: 100%;
-   }
- }
-
  hr {
    border: 0;
    height: 1px;
    background: linear-gradient(to right, hsla(0, 0%, 0%, 0%), hsla(0, 0%, 0%, 30%), hsla(0, 0%, 0%, 0%));
- }
+  }
 
- .field input, .field textarea {
-   width: 100%;
-   margin: 1rem 0;
-   border: 1px solid hsl(0, 0%, 80%);
-   border-radius: 0.5rem;
-   overflow: hidden;
-   padding: 0.25rem;
- }
+  .field input, .field textarea {
+    width: 100%;
+    margin: 1rem 0;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 0.25rem;
+  }
 
- .field input:focus, .field textarea:focus {
-   outline: none;
-   border: 1px solid hsl(0, 0%, 60%);
- }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border: 1px solid hsl(0, 0%, 60%);
+  }
 
- .field textarea {
-   height: 10rem;
- }
+  .field textarea {
+    height: 10rem;
+  }
+
+  @media all and (max-width: 600px) {
+    .nav-button {
+      flex-basis: 100%;
+    }
+  }

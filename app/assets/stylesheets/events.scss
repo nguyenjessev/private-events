@@ -4,7 +4,7 @@
 
 .event-card {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 3fr 2fr 12fr;
   grid-template-areas:
     "title title title"
@@ -88,4 +88,36 @@
 
 .event-title-input {
   font-size: 2rem;
+}
+
+.event-information {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "description details"
+    "guests guests";
+}
+
+.event-description {
+  grid-area: description;
+}
+
+.event-details {
+  grid-area: details;
+  border-left: 1px dotted black;
+  padding-left: 1rem;
+}
+
+.event-guests {
+  grid-area: guests;
+  border-top: 1px dotted black;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+@media all and (max-width: 1600px) {
+  .event-information {
+    grid-template-columns: none;
+  }
 }
