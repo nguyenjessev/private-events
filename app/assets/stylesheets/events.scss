@@ -101,6 +101,8 @@
 
 .event-description {
   grid-area: description;
+  white-space: pre-line;
+  padding-right: 1rem;
 }
 
 .event-details {
