@@ -1,0 +1,33 @@
+// Place all the styles related to the Invite controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.invite-fragment {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.invite-username {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.invite-btn {
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background: hsl(210, 100%, 70%);
+  color: white;
+  padding: 0.5rem;
+}
+
+.uninvite-btn {
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background: hsl(10, 100%, 60%);
+  color: white;
+  padding: 0.5rem;
+}

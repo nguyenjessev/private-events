@@ -16,6 +16,7 @@
 
  body {
    margin: 0;
+   font-family: sans-serif;
  }
 
  .centered-container {
@@ -83,6 +84,10 @@
     padding: 0.25rem;
   }
 
+  .field input {
+    font-size: 2rem;
+  }
+
   .field input:focus, .field textarea:focus {
     outline: none;
     border: 1px solid hsl(0, 0%, 60%);
@@ -90,6 +95,10 @@
 
   .field textarea {
     height: 10rem;
+  }
+
+  .field label {
+    font-size: 1.5rem;
   }
 
   @media all and (max-width: 600px) {

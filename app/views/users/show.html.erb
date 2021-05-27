@@ -1,15 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1 class="centered-text"><%= @user.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <section>
+    <h2 class="centered-text">Upcoming Events</h2>
 
-<p>
-  <strong>Created Events:</strong>
-  <% @user.created_events.each do |event| %>
-    <%= link_to event do %>
-      <%= render partial: "events/card", locals: { event: event } %>
-    <% end %>
-  <% end %>
-</p>
+    <section class="event-list">
+      <% @user.attended_events.upcoming.each do |event| %>
+        <%= render partial: "events/card", locals: { event: event } %>
+      <% end %>
+    </section>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="centered-text">Previously Attended Events</h2>
+
+    <section class="event-list">
+      <% @user.attended_events.past.each do |event| %>
+        <%= render partial: "events/card", locals: { event: event } %>
+      <% end %>
+    </section>
+  </section>
+</div>

@@ -13,24 +13,38 @@
     </div>
 
     <div class="event-guests">
-      Attendees:
+      Invited: <%= pluralize(@event.invitees.count, "person") %>
+      <br>
+      Going:
       <% @event.attendees.each do |attendee| %>
         <%= link_to attendee.name, attendee %>
+      <% end %>
+
+      <% if user_logged_in? %>
+        <% if Event.upcoming.exists?(@event.id) %>
+          <% if @event.attendees.where(id: current_user.id).any? %>
+            <%= button_to "Cancel Attendance", event_attendance_path(event_id: @event.id, attendee_id: current_user.id), method: :delete, class: "event-btn" %>
+          <% elsif @event.invitees.where(id: current_user.id).any? || @event.creator == current_user %>
+            <%= button_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post, class: "event-btn" %>
+          <% end %>
+        <% end %>
+
+        <% if @event.creator == current_user %>
+          <%= button_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "event-btn" %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="event-invite">
+      <% if user_logged_in? %>
+        <% if @event.creator == current_user || @event.attendees.where(id: current_user.id).any? %>
+          <strong>Invite Users:</strong>
+          <% (User.all - @event.attendees).each do |user| %>
+            <%= render partial: "invites/fragment", locals: { event: @event, user: user } unless user == current_user %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
 
-  <p>
-    <% if user_logged_in? %>
-      <% if @event.attendees.where(id: current_user.id).any? %>
-        <%= button_to "Cancel Attendance", event_attendance_path(event_id: @event.id, attendee_id: current_user.id), method: :delete, class: "btn" %>
-      <% else %>
-        <%= button_to "Attend Event", event_attendances_path(event_id: @event.id, attendee_id: current_user.id), method: :post, class: "btn" %>
-      <% end %>
-
-      <% if @event.creator == current_user %>
-        <%= button_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
-      <% end %>
-    <% end %>
-  </p>
 </div>

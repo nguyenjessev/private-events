@@ -1,0 +1,11 @@
+<div class="invite-fragment">
+  <div class="invite-username">
+    <%= link_to user.name, user %>
+  </div>
+
+  <% if event.invitees.where(id: user.id).any? %>
+    <%= button_to "Uninvite", invite_path(event_id: event.id, invitee_id: user.id), method: :delete, class: "uninvite-btn" %>
+  <% else %>
+    <%= button_to "Invite", invites_path(event_id: event.id, invitee_id: user.id), method: :post, class: "invite-btn" %>
+  <% end %>
+</div>

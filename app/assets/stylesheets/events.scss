@@ -72,7 +72,46 @@
   justify-content: center;
 }
 
-.event-submit {
+.event-information {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "description details"
+    "guests invite";
+}
+
+.event-description {
+  grid-area: description;
+  white-space: pre-line;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.event-details {
+  grid-area: details;
+  border-left: 1px dotted black;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+.event-guests {
+  grid-area: guests;
+  border-top: 1px dotted black;
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.event-invite {
+  grid-area: invite;
+  border-top: 1px dotted black;
+  border-left: 1px dotted black;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  overflow: hidden;
+}
+
+.event-btn {
   width: 100%;
   height: 4rem;
   font-size: 2rem;
@@ -80,42 +119,12 @@
   background: hsl(120, 50%, 45%);
   color: white;
   border: none;
+  margin: 1rem 0;
 }
 
-.event-submit:hover {
+.event-btn:hover {
   background: hsl(120, 50%, 40%);
-}
-
-.event-title-input {
-  font-size: 2rem;
-}
-
-.event-information {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "description details"
-    "guests guests";
-}
-
-.event-description {
-  grid-area: description;
-  white-space: pre-line;
-  padding-right: 1rem;
-}
-
-.event-details {
-  grid-area: details;
-  border-left: 1px dotted black;
-  padding-left: 1rem;
-}
-
-.event-guests {
-  grid-area: guests;
-  border-top: 1px dotted black;
-  margin-top: 1rem;
-  padding-top: 1rem;
+  cursor: pointer;
 }
 
 @media all and (max-width: 1600px) {

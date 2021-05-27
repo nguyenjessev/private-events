@@ -8,7 +8,7 @@ Create an app that allows users to create events, view other created events, and
 
 ## What I used
 
-Rails, cookies, Rails associations
+Rails, cookies, Rails associations, Rails scopes, CSS Flexbox, CSS Grid
 
 ## What I learned
 
