@@ -13,3 +13,5 @@ Rails, cookies, Rails associations, Rails scopes, CSS Flexbox, CSS Grid
 ## What I learned
 
 How to use non-standard Rails associations to facilitate more complicated data relationships
+
+[Live Preview](https://immense-caverns-85541.herokuapp.com/)
